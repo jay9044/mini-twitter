@@ -11,9 +11,19 @@ formElement.addEventListener("submit", event => {
   console.log("default prevented")
   const latestTweet = document.querySelector(".latest-tweet")
   const userInput = textBoxElement.value
+    
   const newTweet = document.createElement("div")
   newTweet.setAttribute("class", "latest-tweet")
   newTweet.textContent = userInput
+
+  const deleteButton = document.createElement("button")
+  deleteButton.textContent = "Delete"
+  newTweet.appendChild(deleteButton)
+  deleteButton.addEventListener("click", function(e){
+    timelineElement.removeChild(newTweet)
+})
+
+
   timelineElement.insertBefore(newTweet, latestTweet)
   textBoxElement.value = ""
   characterCounterElement.textContent = `0 / 280`
@@ -31,6 +41,7 @@ textBoxElement.addEventListener("input", event => {
       characterCounterElement.style.color ="black"
   }
 })
+
 
 
 
