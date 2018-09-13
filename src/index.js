@@ -1,16 +1,23 @@
-var form = document.querySelector("form");
-form.addEventListener("submit", function(e){
-    e.preventDefault()
+const formElement = document.querySelector("form")
+const textBoxElement = document.querySelector(".user-text")
+const timelineElement = document.querySelector(".timeline")
+formElement.addEventListener("submit", event => {
+  event.preventDefault()
+  console.log("default prevented")
+  const latestTweet = document.querySelector(".latest-tweet")
+  const userInput = textBoxElement.value
+  const newTweet = document.createElement("div")
+  newTweet.setAttribute("class", "latest-tweet")
+  newTweet.textContent = userInput
+  timelineElement.insertBefore(newTweet, latestTweet)
+  textBoxElement.value = ""
 })
 
 
 
 
 
-var text = document.querySelector("textarea")
-text.addEventListener("input", function(e){
-    console.log(e.target.value)
-})
+
 
 
 // const childNode = document.querySelector("textarea");
