@@ -41,7 +41,7 @@ function user() {
 
     timelineElement.insertBefore(newTweet, latestTweet)
     textBoxElement.value = ""
-    characterCounterElement.textContent = `0 / 280`
+    characterCounterElement.textContent = `Type To Tweet something..`
     characterCounterElement.style.color = "black"
     submitButtonElement.disabled = true
   })
