@@ -53,11 +53,16 @@ function characterCounter() {
   textBoxElement.addEventListener("input", event => {
     const currentCount = event.target.value.length
     characterCounterElement.textContent = `${currentCount} / 280`
-    if (currentCount > 280 || currentCount < 1) {
+    if (currentCount > 280) {
       characterCounterElement.style.color = "red"
       submitButtonElement.disabled = true
+      characterCounterElement.textContent = `Dude.. you have typed over 280`
+      
+    }else if(currentCount < 1){
       characterCounterElement.textContent = `Type To Tweet something..`
+      submitButtonElement.disabled = true
     }
+
     else {
       characterCounterElement.style.color = "black"
       submitButtonElement.disabled = false
